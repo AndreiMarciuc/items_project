@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .register{
+        
+        width: 180px; 
+        display: inline-block;
+        background-color:  silver;
+        text-align: center;
+        }
+
+        .login{
+        
+        text-align: center;
+        width: 180px; 
+        display: inline-block;
+        background-color:  silver;
+            
+        }
+    </style>
+</head>
+<body>
+    <h2>Welcome</h2><br>
+    <h3>Register </h3>
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <div class="register">
+        <form action="/register" method="post">
+            {%csrf_token%}
+            Name: <br> <input type="text" name='name' placeholder="Enter Your Name."><br>
+            
+            Username: <br><input type="text" name='email' placeholder="Enter Email."><br>
+            Password: <br><input type="password" name='password' placeholder="Enter Password"><br>
+            Confirm Password: <br><input type="password" name='c_password' placeholder="Confirm Pasword"><br>
+            Date Hired: <br> <input type="date" name="birthday">
+            <input type="submit" value="Register."><br>
+        </form>
+    </div>
+    <h3>Login </h3>
+    <div class="login">
+        <form action="/login" method="post">
+            {%csrf_token%}
+            
+            Enter Email: <br><input type="text" name='email' placeholder="Enter Email."><br>
+            Enter Password: <br><input type="password" name='password' placeholder="Enter Password"><br><br>
+        
+            <input type="submit" value="Login"><br>
+        </form>
+    </div>
+</body>
+</html>

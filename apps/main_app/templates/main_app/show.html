@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Item brand</title>
+</head>
+<body>
+    <h2><a href="/home">Home</a> | <a href="/logout">Logout</a></h2>
+    
+        <h1>{{item.brand}}</h1>
+    
+    <h4>Users who added this item/product under their wish list</h4>
+    {% for item in items%}
+        {%if item not in cur_user.items.all%}
+            <p>{{cur_user.name}}</p>
+        {%endif%}
+    {%endfor%}  
+</body>
+</html>
